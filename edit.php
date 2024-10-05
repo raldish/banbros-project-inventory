@@ -54,7 +54,7 @@
                 }
                 #submit{
                     padding: 10px;
-                    background:rgba(106, 176, 76, 1.0);
+                    background:#2b9e4f;
                     color: #fff;
                     border-radius: 3px;
                     border: none;

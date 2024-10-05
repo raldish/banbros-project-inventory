@@ -17,7 +17,7 @@
     }
 
     $result =mysqli_query($conn, $query);
-
+    // VIEW LIST HERE
     if(mysqli_num_rows($result)>0){
         $return .='
             <table border="1" width="100%" id="table">

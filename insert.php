@@ -10,7 +10,7 @@
 
         $sql = "SELECT * FROM client WHERE assigned_to = '$assigned_to'";
         $query = $conn->query($sql);
-
+        // DUPLICATE RECORD LIST
         if($query->num_rows > 0){
             $_SESSION['error'] = "Record already exists";
         }else{
