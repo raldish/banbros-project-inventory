@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +10,7 @@
     <title>Login</title>
 </head>
 <body>
-        <form action="login.php" method="post">
+        <form action="login.php" method="POST">
             <table>
                 <tr>
                     <td>USERNAME</td>
@@ -18,9 +22,15 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td><button type="submit" value="LOGIN">SUBMIT</button></td>
+                    <td><button type="submit" name="login">SUBMIT</button></td>
                 </tr>
             </table>
         </form>
+        <?php
+            if(isset($_SESSION['error'])){
+                echo $_SESSION['error'];
+                unset($_SESSION['error']);
+            }
+        ?>
     </body>
 </html>
