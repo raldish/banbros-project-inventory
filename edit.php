@@ -72,13 +72,13 @@
                     border:none;
                     cursor: pointer;
                     width: 100%;
-
                 }
                 #delete:hover{
                     background: #EA2027;
                 }
         </style>
     </head>
+    
 <body>
 <div id="divheader">
 <form action="update.php" method="post">
