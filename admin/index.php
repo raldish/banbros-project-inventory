@@ -92,6 +92,14 @@
     #export:hover{
         background: green;
     }
+    .custom-btn {
+    color: white;
+    transition: background-color 0.3s ease; /* Smooth transition */
+    }
+
+    .custom-btn:hover {
+    background-color:#4f7ad1; /* Color on hover */ /* Text color on hover */
+    }
     
     /* h1{
         text-align: center;
@@ -119,7 +127,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-light bg-info">
+<nav class="navbar navbar" style="background-color: #98b0e0;">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header-dark">
@@ -129,25 +137,26 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img src="https://www.banbros.ph/assets/img/logowhite.png" style="width: 100px;" alt="Inventory System"></a>
+      <a class="navbar-brand" href="index.php"><img src="https://www.banbros.ph/assets/img/logowhite.png" style="width: 100px;" alt="Inventory System"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <!-- <li class="active"><a href="#">Dashboard <span class="sr-only">(current)</span></a></li> -->
-        <li><a href="#add" data-toggle="modal"><span class="fa fa-plus"></span> Add New</a></li>
+        <li><a href="#add" data-toggle="modal" class="btn custom-btn"><span class="fa fa-plus" style="color:#073595;"></span> Add New</a></li>
+        <li><a href="export_excelfile.php?export" data-toggle="modal" class="btn custom-btn"><span class="fa fa-file-excel" style="color:#073595;"></span> Export</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">WELCOME!</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <?=$user['name'];?> <span class="caret"></span></a>
+          <a href="#" class="btn custom-btn" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ><span class="glyphicon glyphicon-user" style="color:#073595;"></span> <?=$user['name'];?> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="logout.php" onclick="return confirm('Are you sure you want to logout?')"><span class="fa fa-sign-out"></span> Log Out</a></li>
-            <li><a href="#"><span class="fa fa-user"></span> Profile</a></li>
+            <li><a href="logout.php" onclick="return confirm('Are you sure you want to logout?')"><span class="fa fa-sign-out" style="color:#073595;"></span> Log Out</a></li>
+            <li><a href="#"><span class="fa fa-user" style="color:#073595;"></span> Profile</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#"><span class="fa fa-key"></span> Change Password</a></li>
+            <li><a href="#"><span class="fa fa-key" style="color:#073595;"></span> Change Password</a></li>
           </ul>
         </li>
       </ul>
@@ -240,7 +249,7 @@
                                     <a href="edit.php?edit=<?=$row['ID']; ?>" class="btn btn-success"><span class="fa fa-edit"></span></a>
                                     <a href="delete.php?delete=<?=$row['ID']; ?>" class="btn btn-danger"><span class="fa fa-trash"></span></a>
                                     <a href="archive.php?archive=<?=$row['ID']; ?>" class="btn btn-danger"><span class="fa fa-archive"></span></a>
-                                    <a href="export_excelfile.php?export" class="btn btn-info"><span class="fa fa-file-excel"></span></a>
+                                    <!-- <a href="export_excelfile.php?export" class="btn btn-info"><span class="fa fa-file-excel"></span></a> -->
                                 </td>
                             </tr>
 
