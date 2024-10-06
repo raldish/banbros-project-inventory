@@ -11,14 +11,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
+<style>
+    .container{
+        padding: 20px;
+    }
+</style>
+
 <body style="background:#eee">
 <br><br><br><br>
     <div class="container">
         <div class="col-md-6 offset-3"></div>
-            <div class="card">
-                <div class="card-header bg-primary">
+            <div class="card" style="width: 30rem; margin:auto; float:none;">
+                <div class="card-header bg-primary d-flex justify-content-center">
                     <div class="card-title">
-                        <h4 class="text-white">LOGIN</h4>
+                    <br>
+                    <a class="navbar-brand" href="#"><img src="https://www.banbros.ph/assets/img/logo.png" style="width: 210px;" alt="Inventory System"></a>
                     </div>
                 </div>
                 <form action="login.php" method="POST">
@@ -33,7 +40,7 @@
                         </tr>
                         <tr>
                             <!-- <td></td> -->
-                            <td><button type="submit" class="btn btn-primary btn-block" name="login">SUBMIT</button></td>
+                            <td><button type="submit" class="btn btn-primary btn-block" name="login">Login</button></td>
                         </tr>
                     </table>
                 </form>
@@ -47,6 +54,5 @@
                 ?>
         </div>
     </div>
-
 </body>
 </html>

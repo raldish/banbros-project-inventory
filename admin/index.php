@@ -22,7 +22,7 @@
     } */
     #divheader{
         margin:auto;
-        width: 1000px;
+        width: 1200px;
         border-radius: 3px;
         padding: 10px;
         background: #fff;
@@ -119,17 +119,17 @@
 </head>
 
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-light bg-info">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+    <div class="navbar-header-dark">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <!-- <a class="navbar-brand" href="#"><img src="bblogo.png" alt="Inventory System"></a> -->
+      <a class="navbar-brand" href="#"><img src="https://www.banbros.ph/assets/img/logowhite.png" style="width: 100px;" alt="Inventory System"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -138,12 +138,7 @@
         <!-- <li class="active"><a href="#">Dashboard <span class="sr-only">(current)</span></a></li> -->
         <li><a href="#add" data-toggle="modal"><span class="fa fa-plus"></span> Add New</a></li>
       </ul>
-      <!-- <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form> -->
+
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">WELCOME!</a></li>
         <li class="dropdown">
@@ -224,7 +219,7 @@
                             <th>Location</th>
                             <th>Model Description</th>
                             <th>Serial Number</th>
-                            <th>Action</th>
+                            <th style="text-align:right">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -244,6 +239,7 @@
                                 <td align="right">
                                     <a href="edit.php?edit=<?=$row['ID']; ?>" class="btn btn-success"><span class="fa fa-edit"></span></a>
                                     <a href="delete.php?delete=<?=$row['ID']; ?>" class="btn btn-danger"><span class="fa fa-trash"></span></a>
+                                    <a href="archive.php?archive=<?=$row['ID']; ?>" class="btn btn-danger"><span class="fa fa-archive"></span></a>
                                     <a href="export_excelfile.php?export" class="btn btn-info"><span class="fa fa-file-excel"></span></a>
                                 </td>
                             </tr>
