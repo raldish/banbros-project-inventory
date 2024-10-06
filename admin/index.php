@@ -88,7 +88,7 @@
         width: 100%;
     }
     #export:hover{
-        background: #6181ec;
+        background: green;
     }
     
     h1{
@@ -111,6 +111,8 @@
 </head>
 
 <body>
+    <!-------LOGOUT--------->
+    WELCOME Admin: <?=$user['name'];?> | <a href="logout.php" onclick="return confirm('Are you sure you want to logout?')">Log Out</a>
     <div id="divheader">
         <form action="insert.php" method="post">
             <table width="100%">
