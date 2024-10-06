@@ -17,11 +17,11 @@ session_start();
                 header("location:admin/index.php");
             }
         }else {
-            $_SESSION['error'] = "Incorrect password";
+            $_SESSION['error'] = "Incorrect username or password";
             header("location:index.php");
         }
     } else {
-        $_SESSION['error'] = "Incorrect username or password";
+        $_SESSION['error'] = "Username or Password is incorrect ";
         header("location:index.php");
     }
 ?>
