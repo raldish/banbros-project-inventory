@@ -160,17 +160,32 @@
                 unset($_SESSION['error']);
             }
         ?>
+        </div>
         <br>
-        <p>SEARCH HERE</p>
-        <input type="text" name="search" id="search" placeholder="Search Record Here">
-        <form action="deleteAll.php" method="post">
-            <h1>LIST OF RECORDS</h1>
-            <button style="width:100px;height:30px 30px" type="submit" name="deleteAll" id="delete"><span class="fa fa-trash"></span> DELETE</button> <a href="export_excelfile.php?export" style="width:100px;height:30px 30px" id="export">EXPORT TO EXCEL FILE</a>
-            <br>   
-            <br> 
-        <div id="result"></div>
+        <div id="divheader">
+            <table width="100%">
+                <tr>
+                    <th align ="left"><p>SEARCH HERE</p></th>
+                </tr>
+                <tr>
+                    <input type="text" name="search" id="search" placeholder="Search Record Here">
+                </tr>
+            </table>
+            <form action="deleteAll.php" method="post">
+            <table width="100%" border="0">
+                <tr>
+                    <th align="left"><h1>LIST OF RECORDS</h1></th>
+                    <th align="right">
+                        <a id="export" href="export_excelfile.php?export" style="width:100px;height:30px 30px"><span class="fa fa-file-excel"></span> EXPORT TO EXCEL FILE</a>
+                        <button style="width:100px;height:30px 30px" type="submit" name="deleteAll" id="delete"><span class="fa fa-trash"></span> DELETE</button>
+                    </th>
+                </tr>
+                <tr>
+                <th colspan="3"><div id="result"></div></th>
+                </tr>
+            </table>
         </form>
-        <script>
+        <!-- <script>
             $(document).ready(function(){
                 load_data();
                 function load_data(query){
@@ -193,7 +208,7 @@
                     }
                 }); 
             });
-        </script>
+        </script> -->
     </div>
 </body>
 </html>

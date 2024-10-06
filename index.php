@@ -37,6 +37,7 @@
                         </tr>
                     </table>
                 </form>
+                </div>
                 <br>
                 <?php
                     if(isset($_SESSION['error'])){
@@ -44,7 +45,6 @@
                         unset($_SESSION['error']);
                     }
                 ?>
-            </div>
         </div>
     </div>
 
