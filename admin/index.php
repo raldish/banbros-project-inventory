@@ -119,7 +119,6 @@
 </head>
 
 <body>
-
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -130,42 +129,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img src="https://www.banbros.ph/assets/img/logowhite.png" style="width: 100px;" alt="logo"></a>
+      <!-- <a class="navbar-brand" href="#"><img src="bblogo.png" alt="Inventory System"></a> -->
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#add" data-toggle="modal">Add New</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
+        <!-- <li class="active"><a href="#">Dashboard <span class="sr-only">(current)</span></a></li> -->
+        <li><a href="#add" data-toggle="modal"><span class="fa fa-plus"></span> Add New</a></li>
       </ul>
-      <form class="navbar-form navbar-left">
+      <!-- <form class="navbar-form navbar-left">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+      </form> -->
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Welcome</a></li>
+        <li><a href="#">WELCOME!</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?=$user['name'];?> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <?=$user['name'];?> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="logout.php" onclick="return confirm('Are you sure you want to logout?')">Log Out</a></li>
-            <li><a href="#">Profile</a></li>
+            <li><a href="logout.php" onclick="return confirm('Are you sure you want to logout?')"><span class="fa fa-sign-out"></span> Log Out</a></li>
+            <li><a href="#"><span class="fa fa-user"></span> Profile</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Change Password</a></li>
+            <li><a href="#"><span class="fa fa-key"></span> Change Password</a></li>
           </ul>
         </li>
       </ul>
@@ -173,7 +160,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-    <div id="divheader">
+    <!-- <div id="divheader"> -->
         <!-- <form action="insert.php" method="post">
             <table width="100%" class="table border">
                 <tr>
@@ -257,6 +244,7 @@
                                 <td align="right">
                                     <a href="edit.php?edit=<?=$row['ID']; ?>" class="btn btn-success"><span class="fa fa-edit"></span></a>
                                     <a href="delete.php?delete=<?=$row['ID']; ?>" class="btn btn-danger"><span class="fa fa-trash"></span></a>
+                                    <a href="export_excelfile.php?export" class="btn btn-info"><span class="fa fa-file-excel"></span></a>
                                 </td>
                             </tr>
 
