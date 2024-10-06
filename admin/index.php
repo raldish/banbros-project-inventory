@@ -17,12 +17,12 @@
         background-color: #eee;
         font-family:arial;
     }
-    p{
+    /* p{
         font-size: 10pt;
-    }
+    } */
     #divheader{
         margin:auto;
-        width: 650px;
+        width: 1000px;
         border-radius: 3px;
         padding: 10px;
         background: #fff;
@@ -45,15 +45,16 @@
         border-collapse:collapse;
         padding: 5px;
         font-size: 10pt;
+        background: #e4eaf6;
     }
-    tr{
+    tr td{
         padding: 5px;
         font-size: 10px;
     }
-    td{
+    /* td{
         padding: 5px;
         font-size: 10px;
-    }
+    } */
     #submit{
         padding: 10px;
         background:#2b9e4f;
@@ -61,42 +62,42 @@
         border-radius: 11px;
         border: none;
         cursor: pointer;
-        width: 312%;
+        width: 100%;
     }
     #submit:hover{
         background:#27ae80;
     }
     #delete{
-        padding: 10px;
+        padding: 8px;
         background: #d63031;
         color: #fff;
         border-radius: 3px;
         border:none;
         cursor: pointer;
-        width: 100%;
+        /* width: 100%; */
     }
     #delete:hover{
         background: #EA2027;
     }
     #export{
-        padding: 10px;
+        padding: 8px;
         background: #a9adb5;
         color: #fff;
         border-radius: 3px;
         border:none;
         cursor: pointer;
+        text-decoration: none;
         width: 100%;
     }
     #export:hover{
         background: green;
     }
     
-    h1{
+    /* h1{
         text-align: center;
         background: #2222b1;
         border-radius: 20x;
-        color: #fff;
-    }
+    } */
 </style>
 
 <!DOCTYPE html>
@@ -108,28 +109,32 @@
     <title>Invventory System</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/4.0.1/css/fixedHeader.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.3/css/responsive.dataTables.css">
 </head>
 
 <body>
     <!-------LOGOUT--------->
     WELCOME Admin: <?=$user['name'];?> | <a href="logout.php" onclick="return confirm('Are you sure you want to logout?')">Log Out</a>
     <div id="divheader">
+
         <form action="insert.php" method="post">
-            <table width="100%">
+            <table width="100%" class="table border">
                 <tr>
-                    <h1>Banbros Properties Inventory System</h1>
+                    <th align="left" style="text-align: center;">BANBROS PROPERTIES INVENTORY SYSTEM</th>
                 </tr>
                 <tr>
-                    <td>Company Code</td>
-                    <td><input type="text" name="company_code" required></td>
+                    <td>Company Code<input type="text" name="company_code" placeholder="Company Code" required></td>
                 </tr>
                 <tr>
-                    <td>Assigned To</td>
-                    <td><input type="text" name="assigned_to" required></td>
+                    <td>Assigned To<input type="text" name="assigned_to" placeholder="Name of the assignee" required></td>
                 </tr>
                 <tr>
-                    <td><label for="location_n">Location</label></td>
                     <td>
+                    <label for="location_n">Location</label>
                     <select name="location_n">
                     <option value="#">Select Department</option>
                     <option value="accounting">Accounting</option>
@@ -138,15 +143,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Model Description</td>
-                    <td><input type="text" name="model_description" required></td>
+                    <td>Model Description<input type="text" name="model_description" placeholder="Model Description" required></td>
                 </tr>
                 <tr>
-                    <td>Serial Number</td>
-                    <td><input type="text" name="serial_number" required></td>
+                    <td>Serial Number<input type="text" name="serial_number" placeholder="NXE*********" required></td>
                 </tr>
                 <tr>
-                    <td><button type="submit" id="submit" name="submit"><i class="fa fa-save"></i> SUBMIT</button></td>
+                    <td><button type="submit" id="submit" class="submit" name="submit"><span class="fa fa-save"></span> SUBMIT</button></td>
                 </tr>
             </table>
         </form>
@@ -160,18 +163,55 @@
                 unset($_SESSION['error']);
             }
         ?>
-        </div>
+        </div> 
         <br>
         <div id="divheader">
-            <table width="100%">
+            <!-- <table width="100%">
                 <tr>
                     <th align ="left"><p>SEARCH HERE</p></th>
                 </tr>
                 <tr>
-                    <input type="text" name="search" id="search" placeholder="Search Record Here">
+                    <th><input type="text" name="search" id="search" placeholder="Search Record Here"></th>
                 </tr>
-            </table>
-            <form action="deleteAll.php" method="post">
+            </table> -->
+
+                <table class="table table-bordered table-stripped" id="example">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Company Code</th>
+                            <th>Assigned To</th>
+                            <th>Location</th>
+                            <th>Model Description</th>
+                            <th>Serial Number</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $sql = "SELECT * FROM client ORDER BY company_code ASC";
+                            $query= $conn->query($sql); 
+                            $count =1;
+                            while($row = $query->fetch_assoc()){
+                        ?>
+                            <tr>
+                                <td><?=$count++;?></td>
+                                <td><?=$row['company_code']?></td>
+                                <td><?=$row['assigned_to']?></td>
+                                <td><?=$row['location_n']?></td>
+                                <td><?=$row['model_description']?></td>
+                                <td><?=$row['serial_number']?></td>
+                                <td align="right">
+                                    <a href="edit.php?edit=<?=$row['ID']; ?>" class="btn btn-success"><span class="fa fa-edit"></span></a>
+                                    <a href="delete.php?delete=<?=$row['ID']; ?>" class="btn btn-danger"><span class="fa fa-trash"></span></a>
+                                </td>
+                            </tr>
+
+                        <?php } ?>
+                    </tbody>
+                </table>
+
+        <!-- <form action="deleteAll.php" method="post">
             <table width="100%" border="0">
                 <tr>
                     <th align="left"><h1>LIST OF RECORDS</h1></th>
@@ -184,7 +224,8 @@
                 <th colspan="3"><div id="result"></div></th>
                 </tr>
             </table>
-        </form>
+        </form> -->
+
         <!-- <script>
             $(document).ready(function(){
                 load_data();
@@ -210,5 +251,17 @@
             });
         </script> -->
     </div>
-</body>
+            <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+            <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+            <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/dataTables.fixedHeader.js"></script>
+            <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/fixedHeader.dataTables.js"></script>
+            <script src="https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.js"></script>
+            <script src="https://cdn.datatables.net/responsive/3.0.3/js/responsive.dataTables.js"></script>
+            <script>
+                new DataTable('#example', {
+                    fixedHeader: true,
+                    responsive: true
+                });
+            </script>
+    </body>
 </html>

@@ -42,8 +42,8 @@
                     <td>'.$row['model_description'].'</td>
                     <td>'.$row['serial_number'].'</td>
                     <td align="right">
-                        <a href="edit.php?edit='.$row['ID'].'"><span class="fa fa-edit style="color:green"></span></a>
-                        <a href="delete.php?delete='.$row['ID'].'"><span class="fa fa-trash style="color:red"></span"></a>
+                        <a href="edit.php?edit='.$row['ID'].'"><span class="fa fa-edit></span></a>
+                        <a href="delete.php?delete='.$row['ID'].'"><span class="fa fa-trash></span></a>
                     </td>
                     <td align="right"><input type="checkbox" name="check[]" value="'.$row['ID'].'"></td>
                 </tr>
