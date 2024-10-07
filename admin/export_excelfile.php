@@ -21,6 +21,7 @@
                 <th>Location</th>
                 <th>Model Description</th>
                 <th>Serial Number</th>
+                <th>Added at</th>
             </tr>
         ";
 
@@ -38,6 +39,7 @@
                     <td>'.$value['location_n'].'</td>
                     <td>'.$value['model_description'].'</td>
                     <td>'.$value['serial_number'].'</td>
+                    <td>'.$value['added_at'].'</td>
                 </tr>
             ';
     }

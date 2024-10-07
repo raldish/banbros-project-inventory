@@ -8,7 +8,7 @@
         $model_description = $_POST['model_description'];
         $serial_number = $_POST['serial_number'];
 
-        $sql = "SELECT * FROM client WHERE assigned_to = '$assigned_to'";
+        $sql = "SELECT * FROM client WHERE company_code = '$company_code' AND assigned_to = '$assigned_to' AND serial_number = '$serial_number'";
         $query = $conn->query($sql);
 
         if($query->num_rows > 0){

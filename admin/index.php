@@ -228,6 +228,7 @@
                             <th>Location</th>
                             <th>Model Description</th>
                             <th>Serial Number</th>
+                            <th>Added at</th>
                             <th style="text-align:right">Action</th>
                         </tr>
                     </thead>
@@ -245,6 +246,7 @@
                                 <td><?=$row['location_n']?></td>
                                 <td><?=$row['model_description']?></td>
                                 <td><?=$row['serial_number']?></td>
+                                <td><?=$row['added_at']?></td>
                                 <td align="right">
                                     <a href="edit.php?edit=<?=$row['ID']; ?>" class="btn btn-success"><span class="fa fa-edit"></span></a>
                                     <a href="delete.php?delete=<?=$row['ID']; ?>" class="btn btn-danger"><span class="fa fa-trash"></span></a>
