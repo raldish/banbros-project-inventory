@@ -144,7 +144,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <!-- <li class="active"><a href="#">Dashboard <span class="sr-only">(current)</span></a></li> -->
-        <li><a href="#add" data-toggle="modal" class="btn custom-btn"><span class="fa fa-plus" style="color:#073595;"></span> Add New</a></li>
+        <li><a href="#add" data-toggle="modal" class="btn custom-btn"><span class="fa fa-plus" style="color:#073595;" ></span> Add New</a></li>
+        <li><a href="#" data-toggle="modal" class="btn custom-btn"><span class="fa fa-archive" style="color:#073595;"></span> Archive</a></li>
         <li><a href="export_excelfile.php?export" data-toggle="modal" class="btn custom-btn"><span class="fa fa-file-excel" style="color:#073595;"></span> Export</a></li>
       </ul>
 

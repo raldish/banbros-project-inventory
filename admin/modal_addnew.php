@@ -35,7 +35,6 @@
                     <td><button type="submit" id="submit" class="submit" name="submit"><span class="fa fa-save"></span> SUBMIT</button></td>
                 </tr> -->
             </table>
-
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
