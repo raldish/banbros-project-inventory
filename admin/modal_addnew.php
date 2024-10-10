@@ -20,8 +20,9 @@
                     <label for="location_n">Location</label>
                     <select name="location_n">
                     <option value="#">Select Department</option>
-                    <option value="accounting">Accounting</option>
-                    <option value="marketing">Marketing</option>
+                    <option value="Corporate">Corporate</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Marketing">Marketing</option>
                     </select>
                     </td>
                 </tr>
