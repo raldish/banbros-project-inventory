@@ -103,8 +103,9 @@
                     <td>
                     <select name="location_n">
                     <option value="#">Select Department</option>
-                    <option value="accounting" <?= ($row['location_n'] == 'accounting') ? 'selected' : '' ?>>Accounting</option>
-                    <option value="marketing" <?= ($row['location_n'] == 'marketing') ? 'selected' : '' ?>>Marketing</option>
+                    <option value="CORPORATE" <?= ($row['location_n'] == 'Corporate') ? 'selected' : '' ?>>Corporate</option>
+                    <option value="MARKETING" <?= ($row['location_n'] == 'Marketing') ? 'selected' : '' ?>>Marketing</option>
+                    <option value="ACCOUNTING" <?= ($row['location_n'] == 'Accounting') ? 'selected' : '' ?>>Accounting</option>
                     </select>
                     </td>
                 </tr>

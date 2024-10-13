@@ -164,7 +164,6 @@
             }
         ?>
         </div> 
-        <br>
         <div id="divheader">
             <h1>Banbros Properties List</h1>
                 <table class="table table-bordered table-stripped" id="example">
