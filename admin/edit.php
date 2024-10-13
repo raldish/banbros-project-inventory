@@ -10,7 +10,7 @@
 
 <html>
     <head>
-        <title>ADD ITEMS</title>
+        <title>Add property</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -77,51 +77,58 @@
                 #delete:hover{
                     background: #EA2027;
                 }
+                h3{
+                text-align: center;
+                }
         </style>
     </head>
-    
+
 <body>
-<div id="divheader">
-<form action="update.php" method="post">
-<a href="index.php"  class="btn btn-primary">Back</a>
-            <table width="100%">
-                <tr>
-                    <td>ID Number</td>
-                    <td><input type="text" value="<?=$row['ID']; ?>" name="ID" required readonly></td>
-                </tr>
-                <tr>
-                <tr>
-                    <td>Company Code</td>
-                    <td><input type="text" value="<?=$row['company_code']; ?>" name="company_code" required></td>
-                </tr>
-                <tr>
-                    <td>Assigned To</td>
-                    <td><input type="text" value="<?=$row['assigned_to']; ?>" name="assigned_to" required></td>
-                </tr>
-                <tr>
-                    <td><label for="location_n">Location</label></td>
-                    <td>
-                    <select name="location_n">
-                    <option value="#">Select Department</option>
-                    <option value="CORPORATE" <?= ($row['location_n'] == 'Corporate') ? 'selected' : '' ?>>Corporate</option>
-                    <option value="MARKETING" <?= ($row['location_n'] == 'Marketing') ? 'selected' : '' ?>>Marketing</option>
-                    <option value="ACCOUNTING" <?= ($row['location_n'] == 'Accounting') ? 'selected' : '' ?>>Accounting</option>
-                    </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Model Description</td>
-                    <td><input type="text" value="<?=$row['model_description']; ?>" name="model_description" required></td>
-                </tr>
-                <tr>
-                    <td>Serial Number</td>
-                    <td><input type="text" value="<?=$row['serial_number']; ?>" name="serial_number" required></td>
-                </tr>
-                <tr>
-                    <td><button type="submit" id="submit" name="submit"><span class="fa fa-edit"></span>UPDATE</button></td>
-                </tr>
-            </table>
-        </form>
+<br>
+<br>
+    <div class="panel-heading" style="color:white;background:#99C7DD;padding:10px"><h3>Update Property Record</h3></div><br>
+        <div id="divheader">
+            <form action="update.php" method="post">
+            <a href="index.php"  class="btn btn-primary">Back</a>
+                    <table width="100%">
+                        <tr>
+                            <td>ID Number</td>
+                            <td><input type="text" value="<?=$row['ID']; ?>" name="ID" required readonly></td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <td>Company Code</td>
+                            <td><input type="text" value="<?=$row['company_code']; ?>" name="company_code" required></td>
+                        </tr>
+                        <tr>
+                            <td>Assigned To</td>
+                            <td><input type="text" value="<?=$row['assigned_to']; ?>" name="assigned_to" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="location_n">Location</label></td>
+                            <td>
+                            <select name="location_n">
+                            <option value="#">Select Department</option>
+                            <option value="CORPORATE" <?= ($row['location_n'] == 'Corporate') ? 'selected' : '' ?>>Corporate</option>
+                            <option value="MARKETING" <?= ($row['location_n'] == 'Marketing') ? 'selected' : '' ?>>Marketing</option>
+                            <option value="ACCOUNTING" <?= ($row['location_n'] == 'Accounting') ? 'selected' : '' ?>>Accounting</option>
+                            </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Model Description</td>
+                            <td><input type="text" value="<?=$row['model_description']; ?>" name="model_description" required></td>
+                        </tr>
+                        <tr>
+                            <td>Serial Number</td>
+                            <td><input type="text" value="<?=$row['serial_number']; ?>" name="serial_number" required></td>
+                        </tr>
+                        <tr>
+                            <td><button type="submit" id="submit" name="submit"><span class="fa fa-edit"></span>UPDATE</button></td>
+                        </tr>
+                </table>
+            </form>
+        </div>
     </div>
 </body>
 </html>

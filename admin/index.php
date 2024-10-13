@@ -18,7 +18,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory System</title>
-    
+
 <style>
     body{
         background-attachment: fixed;
@@ -109,13 +109,14 @@
     background-color:#4f7ad1; /* Color on hover */ /* Text color on hover */
     }
     
-    h1{
+    h3, h5{
         text-align: center;
-        border-radius: 20x;
     }
+
 </style>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/4.0.1/css/fixedHeader.dataTables.css">
@@ -123,7 +124,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar" style="background-color: #98b0e0;">
+<nav class="navbar navbar" style="background-color: #338FBB;">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header-dark">
@@ -134,9 +135,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <!-- <li class="active"><a href="#">Dashboard <span class="sr-only">(current)</span></a></li> -->
-        <li><a href="#add" data-toggle="modal" class="btn custom-btn"><span class="fa fa-plus" style="color:#073595;" ></span> Add New</a></li>
-        <li><a href="#" data-toggle="modal" class="btn custom-btn"><span class="fa fa-archive" style="color:#073595;"></span> Archive</a></li>
-        <li><a href="export_excelfile.php?export" data-toggle="modal" class="btn custom-btn"><span class="fa fa-file-excel" style="color:#073595;"></span> Export</a></li>
+        <li><a href="#add" data-toggle="modal" class="btn custom-btn"><span class="fa fa-plus" style="color:white;" ></span> Add New</a></li>
+        <li><a href="#" data-toggle="modal" class="btn custom-btn"><span class="fa fa-archive" style="color:white;"></span> Archive</a></li>
+        <li><a href="export_excelfile.php?export" data-toggle="modal" class="btn custom-btn"><span class="fa fa-file-excel" style="color:white;"></span> Export</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -154,25 +155,28 @@
   </div><!-- /.container-fluid -->
 </nav>
 
+        <div class="panel panel">
+        <div class="panel-heading" style="color:white;background:#99C7DD;padding:1px"><h3>Banbros Property List</h3></div>
+        <div class="panel-body">
+        <div class="container">
         <?php
             if(isset($_SESSION['success'])){
-                echo "<div style='background:green; color:#fff; padding:3px; border-radius:25px; font-size:20px; text-align:center;'>".$_SESSION['success']."</div>";
+                echo "<div style='background:green; color:#fff; padding:3px; border-radius:25px; font-size:15px; text-align:center;'>".$_SESSION['success']."</div>";
                 unset($_SESSION['success']);
             }
             if(isset($_SESSION['error'])){
-                echo "<div style='background:red; color:#fff; padding:3px; border-radius:25px; font-size:20px; text-align:center;'>".$_SESSION['error']."</div>";
+                echo "<div style='background:red; color:#fff; padding:3px; border-radius:25px; font-size:15px; text-align:center;'>".$_SESSION['error']."</div>";
                 unset($_SESSION['error']);
             }
         ?>
         </div> 
-        <div id="divheader">
-            <h1>Banbros Property List</h1>
-                <table class="table table-bordered table-stripped" id="example">
+                <table class="table table-bordered" id="example" width="100%">
                     <thead>
                         <tr>
                             <th>Company Code</th>
                             <th>Assigned To</th>
                             <th>Location</th>
+                            <th>Specs</th>
                             <th>Model Description</th>
                             <th>Serial Number</th>
                             <th>Added at</th>
@@ -190,6 +194,7 @@
                                 <td><?=$row['company_code']?></td>
                                 <td><?=$row['assigned_to']?></td>
                                 <td><?=$row['location_n']?></td>
+                                <td><?=$row['image_p']?></td>
                                 <td><?=$row['model_description']?></td>
                                 <td><?=$row['serial_number']?></td>
                                 <td><?=$row['added_at']?></td>
@@ -204,9 +209,11 @@
                     </tbody>
                 </table>
             </div>
+            </div>
+            </div>
             <br>
             <br>
-            
+            <div class="panel-heading" style="color:white;background:#338FBB;"><h5>Made by: <a href="https://github.com/raldish" style="color:#e399a5;"><i class="fa fa-github" style="font-size:35px;color:white"></i>Jayrald Pelegrino</a></h5></div>
             <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
             <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
 
