@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
     include "admin/connection.php";
 
     if(isset($_POST['login'])){
@@ -15,13 +15,14 @@ session_start();
             if($password==$row['password']){
                 $_SESSION['admin']= $row['ID'];
                 header("location:admin/index.php");
+            }else {
+                $_SESSION['error'] = "Username or password is incorrect. Please try again.";
+                header("location:index.php");
             }
         }else {
-            $_SESSION['error'] = "Incorrect username or password";
+            $_SESSION['error'] = "Username and password is incorrect. Please try again.";
             header("location:index.php");
         }
-    } else {
-        $_SESSION['error'] = "Username or Password is incorrect ";
-        header("location:index.php");
-    }
+    } 
+
 ?>

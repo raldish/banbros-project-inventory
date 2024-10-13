@@ -11,7 +11,14 @@
     $user = $query->fetch_assoc();
 ?>
 
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory System</title>
+    <style>
     body{
         background-attachment: fixed;
         background-color: #eee;
@@ -101,23 +108,13 @@
     background-color:#4f7ad1; /* Color on hover */ /* Text color on hover */
     }
     
-    /* h1{
+    h1{
         text-align: center;
-        background: #2222b1;
         border-radius: 20x;
-    } */
+    }
 </style>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory System</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/4.0.1/css/fixedHeader.dataTables.css">
@@ -129,12 +126,6 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header-dark">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
       <a class="navbar-brand" href="index.php"><img src="https://www.banbros.ph/assets/img/logowhite.png" style="width: 100px;" alt="Inventory System"></a>
     </div>
 
@@ -148,7 +139,6 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">WELCOME!</a></li>
         <li class="dropdown">
           <a href="#" class="btn custom-btn" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ><span class="glyphicon glyphicon-user" style="color:#073595;"></span> <?=$user['name'];?> <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -163,39 +153,6 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-    <!-- <div id="divheader"> -->
-        <!-- <form action="insert.php" method="post">
-            <table width="100%" class="table border">
-                <tr>
-                    <th align="left" style="text-align: center;">BANBROS PROPERTIES INVENTORY SYSTEM</th>
-                </tr>
-                <tr>
-                    <td>Company Code<input type="text" name="company_code" placeholder="Company Code" required></td>
-                </tr>
-                <tr>
-                    <td>Assigned To<input type="text" name="assigned_to" placeholder="Name of the assignee" required></td>
-                </tr>
-                <tr>
-                    <td>
-                    <label for="location_n">Location</label>
-                    <select name="location_n">
-                    <option value="#">Select Department</option>
-                    <option value="accounting">Accounting</option>
-                    <option value="marketing">Marketing</option>
-                    </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Model Description<input type="text" name="model_description" placeholder="Model Description" required></td>
-                </tr>
-                <tr>
-                    <td>Serial Number<input type="text" name="serial_number" placeholder="NXE*********" required></td>
-                </tr>
-                <tr>
-                    <td><button type="submit" id="submit" class="submit" name="submit"><span class="fa fa-save"></span> SUBMIT</button></td>
-                </tr>
-            </table>
-        </form> -->
         <?php
             if(isset($_SESSION['success'])){
                 echo "<div style='background:green; color:#fff; padding:3px; border-radius:25px; font-size:20px; text-align:center;'>".$_SESSION['success']."</div>";
@@ -209,19 +166,10 @@
         </div> 
         <br>
         <div id="divheader">
-            <!-- <table width="100%">
-                <tr>
-                    <th align ="left"><p>SEARCH HERE</p></th>
-                </tr>
-                <tr>
-                    <th><input type="text" name="search" id="search" placeholder="Search Record Here"></th>
-                </tr>
-            </table> -->
-
+            <h1>Banbros Properties List</h1>
                 <table class="table table-bordered table-stripped" id="example">
                     <thead>
                         <tr>
-                            <th>#</th>
                             <th>Company Code</th>
                             <th>Assigned To</th>
                             <th>Location</th>
@@ -239,7 +187,6 @@
                             while($row = $query->fetch_assoc()){
                         ?>
                             <tr>
-                                <td><?=$count++;?></td>
                                 <td><?=$row['company_code']?></td>
                                 <td><?=$row['assigned_to']?></td>
                                 <td><?=$row['location_n']?></td>
@@ -250,60 +197,18 @@
                                     <a href="edit.php?edit=<?=$row['ID']; ?>" class="btn btn-success"><span class="fa fa-edit"></span></a>
                                     <a href="delete.php?delete=<?=$row['ID']; ?>" class="btn btn-danger"><span class="fa fa-trash"></span></a>
                                     <a href="archive.php?archive=<?=$row['ID']; ?>" class="btn btn-danger"><span class="fa fa-archive"></span></a>
-                                    <!-- <a href="export_excelfile.php?export" class="btn btn-info"><span class="fa fa-file-excel"></span></a> -->
                                 </td>
                             </tr>
 
                         <?php } ?>
                     </tbody>
                 </table>
-
-        <!-- <form action="deleteAll.php" method="post">
-            <table width="100%" border="0">
-                <tr>
-                    <th align="left"><h1>LIST OF RECORDS</h1></th>
-                    <th align="right">
-                        <a id="export" href="export_excelfile.php?export" style="width:100px;height:30px 30px"><span class="fa fa-file-excel"></span> EXPORT TO EXCEL FILE</a>
-                        <button style="width:100px;height:30px 30px" type="submit" name="deleteAll" id="delete"><span class="fa fa-trash"></span> DELETE</button>
-                    </th>
-                </tr>
-                <tr>
-                <th colspan="3"><div id="result"></div></th>
-                </tr>
-            </table>
-        </form> -->
-
-        <!-- <script>
-            $(document).ready(function(){
-                load_data();
-                function load_data(query){
-                    $.ajax({
-                        url:"search.php",
-                        method:"POST",
-                        data:{query:query},
-                        success:function(data){
-                            $('#result').html(data);
-                        }
-                    });
-                }
-
-                $('#search').keyup(function(){
-                    var search = $(this).val();
-                    if(search !=''){
-                        load_data(search);
-                    }else{
-                        load_data();
-                    }
-                }); 
-            });
-        </script> -->
-    </div>
+            </div>
+            <br>
+            <br>
+            
             <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
             <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
-            <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/dataTables.fixedHeader.js"></script>
-            <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/fixedHeader.dataTables.js"></script>
-            <script src="https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.js"></script>
-            <script src="https://cdn.datatables.net/responsive/3.0.3/js/responsive.dataTables.js"></script>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
             <script>
@@ -315,5 +220,5 @@
             <?php
             include "modal_addnew.php";
             ?>
-    </body>
+</body>
 </html>
