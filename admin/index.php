@@ -114,9 +114,9 @@
     }
 
     .footer {
-        position: static;
+        position: absolute;
         left: 0;
-        bottom: 0;
+        bottom: -279px;
         width: 100%;
         background-color: red;
         color: white;
@@ -186,7 +186,6 @@
                             <th>Company Code</th>
                             <th>Assigned To</th>
                             <th>Location</th>
-                            <th>Specs</th>
                             <th>Model Description</th>
                             <th>Serial Number</th>
                             <th>Added at</th>
@@ -204,7 +203,6 @@
                                 <td><?=$row['company_code']?></td>
                                 <td><?=$row['assigned_to']?></td>
                                 <td><?=$row['location_n']?></td>
-                                <td><?=$row['image_p']?></td>
                                 <td><?=$row['model_description']?></td>
                                 <td><?=$row['serial_number']?></td>
                                 <td><?=$row['added_at']?></td>
