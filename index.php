@@ -2,18 +2,6 @@
     session_start();
 ?>
 
-<?php
-if(isset($_SESSION['error'])){
-    echo '<div class="alert alert-danger">'.$_SESSION['error'].'</div>';
-    unset($_SESSION['error']);
-}
-
-if(isset($_SESSION['success'])){
-    echo "<div style='background:green; color:#fff; padding:3px; border-radius:25px; font-size:15px; text-align:center;'>".$_SESSION['success']."</div>";
-    unset($_SESSION['success']);
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,6 +60,18 @@ if(isset($_SESSION['success'])){
             ?>
         </div>
     </div>
+
+    <?php
+    if(isset($_SESSION['error'])){
+        echo '<div class="alert alert-danger">'.$_SESSION['error'].'</div>';
+        unset($_SESSION['error']);
+    }
+
+    if(isset($_SESSION['success'])){
+        echo "<div style='background:green; color:#fff; padding:3px; border-radius:25px; font-size:15px; text-align:center;'>".$_SESSION['success']."</div>";
+        unset($_SESSION['success']);
+    }
+    ?>
 
     <!-- Signup Modal -->
     <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
