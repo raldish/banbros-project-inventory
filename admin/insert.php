@@ -23,7 +23,6 @@
             }
         }
     }
-        
     header('location: index.php');
 ?>
 

@@ -24,5 +24,4 @@
             header("location:index.php");
         }
     } 
-
 ?>

@@ -155,21 +155,21 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-        <div class="panel panel">
-        <div class="panel-heading" style="color:white;background:#99C7DD;padding:1px"><h3>Banbros Property List</h3></div>
+<div class="panel panel">
+    <div class="panel-heading" style="color:white;background:#99C7DD;padding:1px"><h3>Banbros Property List</h3></div>
         <div class="panel-body">
-        <div class="container">
-        <?php
-            if(isset($_SESSION['success'])){
-                echo "<div style='background:green; color:#fff; padding:3px; border-radius:25px; font-size:15px; text-align:center;'>".$_SESSION['success']."</div>";
-                unset($_SESSION['success']);
-            }
-            if(isset($_SESSION['error'])){
-                echo "<div style='background:red; color:#fff; padding:3px; border-radius:25px; font-size:15px; text-align:center;'>".$_SESSION['error']."</div>";
-                unset($_SESSION['error']);
-            }
-        ?>
-        </div> 
+            <div class="container">
+                <?php
+                    if(isset($_SESSION['success'])){
+                        echo "<div style='background:green; color:#fff; padding:3px; border-radius:25px; font-size:15px; text-align:center;'>".$_SESSION['success']."</div>";
+                        unset($_SESSION['success']);
+                    }
+                    if(isset($_SESSION['error'])){
+                        echo "<div style='background:red; color:#fff; padding:3px; border-radius:25px; font-size:15px; text-align:center;'>".$_SESSION['error']."</div>";
+                        unset($_SESSION['error']);
+                    }
+                ?>
+            </div> 
                 <table class="table table-bordered" id="example" width="100%">
                     <thead>
                         <tr>
@@ -208,24 +208,23 @@
                         <?php } ?>
                     </tbody>
                 </table>
-            </div>
-            </div>
-            </div>
-            <br>
-            <br>
-            <div class="panel-heading" style="color:white;background:#338FBB;"><h5>Made by: <a href="https://github.com/raldish" style="color:#e399a5;"><i class="fa fa-github" style="font-size:35px;color:white"></i>Jayrald Pelegrino</a></h5></div>
-            <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-            <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+        </div>
+    </div>
+</div>
+<br><br>
+    <div class="panel-heading" style="color:white;background:#338FBB;"><h5>Made by: <a href="https://github.com/raldish" style="color:#e399a5;"><i class="fa fa-github" style="font-size:35px;color:white"></i>Jayrald Pelegrino</a></h5></div>
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
 
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-            <script>
-                new DataTable('#example', {
-                    fixedHeader: true,
-                    responsive: true
-                });
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            new DataTable('#example', {
+                fixedHeader: true,
+                responsive: true
+            });
             </script>
-            <?php
-            include "modal_addnew.php";
-            ?>
+        <?php
+        include "modal_addnew.php";
+        ?>
 </body>
 </html>
