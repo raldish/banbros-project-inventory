@@ -14,6 +14,7 @@
         
             if($password==$row['password']){
                 $_SESSION['admin']= $row['ID'];
+                $_SESSION['role'] = $row['role']; // Store the user's role in the session
                 header("location:admin/index.php");
             }else {
                 $_SESSION['error'] = "Username or password is incorrect. Please try again.";

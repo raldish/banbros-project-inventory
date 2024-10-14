@@ -180,6 +180,19 @@
 
 <div class="panel panel">
     <div class="panel-heading" style="color:white;background:#fe8181;padding:1px"><h3>Archived Data</h3></div>
+    <?php
+    // Start of PHP code
+    if(isset($_SESSION['admin']) && $_SESSION['role'] == 'admin'){
+        // Admin can manage the list
+        // Display the list with edit and delete options
+        $display_edit_delete = true;
+    }else{
+        // User can only view the list
+        // Display the list without edit and delete options
+        $display_edit_delete = false;
+    }
+    // End of PHP code
+    ?>
         <div class="panel-body">
             <div class="modal-body">
                 <table class="table table-bordered" id="example" width="100%">
@@ -191,9 +204,10 @@
                         <th>Location</th>
                         <th>Model Description</th>
                         <th>Serial Number</th>
-                        <th>Added At</th>
+                        <th>Added at</th>
+                        <?php if($_SESSION['role'] == 'admin'){ ?>
                         <th style="text-align:right">Action</th>
-                        </tr>
+                        <?php } ?>
                     </thead>
                     <tbody>
                         <?php
@@ -219,9 +233,11 @@
                                 echo "<td>" . $row['model_description'] . "</td>";
                                 echo "<td>" . $row['serial_number'] . "</td>";
                                 echo "<td>" . $row['added_at'] . "</td>";
-                                echo "<td align='right'>";
-                                echo "<a href='delete_permanent.php?delete=" . $row['ID'] . "' class='btn btn-danger'><span class='fa fa-trash'></span></a>";
-                                echo "</td>";
+                                if($display_edit_delete){
+                                    echo "<td align='right'>";
+                                    echo "<a href='delete_permanent.php?delete=" . $row['ID'] . "' class='btn btn-danger'><span class='fa fa-trash'></span></a>";
+                                    echo "</td>";
+                                }
                                 echo "</tr>";
                             }
                             } else {

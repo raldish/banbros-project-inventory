@@ -143,8 +143,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <?php if($_SESSION['role'] == 'admin'){ ?>
         <!-- <li class="active"><a href="#">Dashboard <span class="sr-only">(current)</span></a></li> -->
         <li><a href="#add" data-toggle="modal" class="btn custom-btn"><span class="fa fa-plus" style="color:white;" ></span> Add New</a></li>
+        <?php } ?>
         <li><a href="archive_data.php" class="btn custom-btn"><span class="fa fa-archive" style="color:white;"></span> Archive</a></li>
         <li><a href="export_excelfile.php?export" data-toggle="modal" class="btn custom-btn"><span class="fa fa-file-excel" style="color:white;"></span> Export</a></li>
       </ul>
@@ -166,6 +168,19 @@
 
 <div class="panel panel">
     <div class="panel-heading" style="color:white;background:#99C7DD;padding:1px"><h3>Banbros Property List</h3></div>
+    <?php
+        // Start of PHP code
+        if(isset($_SESSION['admin']) && $_SESSION['role'] == 'admin'){
+            // Admin can manage the list
+            // Display the list with edit and delete options
+            $display_edit_delete = true;
+        }else{
+            // User can only view the list
+            // Display the list without edit and delete options
+            $display_edit_delete = false;
+        }
+        // End of PHP code
+    ?>
         <div class="panel-body">
             <div class="container">
                 <?php
@@ -188,7 +203,9 @@
                             <th>Model Description</th>
                             <th>Serial Number</th>
                             <th>Added at</th>
+                            <?php if($_SESSION['role'] == 'admin'){ ?>
                             <th style="text-align:right">Action</th>
+                            <?php } ?>
                         </tr>
                     </thead>
                     <tbody>
@@ -205,11 +222,13 @@
                                 <td><?=$row['model_description']?></td>
                                 <td><?=$row['serial_number']?></td>
                                 <td><?=$row['added_at']?></td>
+                                <?php if($_SESSION['role'] == 'admin'){ ?>
                                 <td align="right">
                                     <a href="edit.php?edit=<?=$row['ID']; ?>" class="btn btn-success"><span class="fa fa-edit"></span></a>
                                     <a href="delete.php?delete=<?=$row['ID']; ?>" class="btn btn-danger"><span class="fa fa-trash"></span></a>
                                     <a href="archive.php?archive=<?=$row['ID']; ?>" class="btn btn-danger"><span class="fa fa-archive"></span></a>
                                 </td>
+                                <?php } ?>
                             </tr>
 
                         <?php } ?>
