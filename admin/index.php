@@ -183,7 +183,7 @@
                     <thead>
                         <tr>
                             <th>Company Code</th>
-                            <th>Assigned To</th>
+                            <th>Assigned To / Device</th>
                             <th>Location</th>
                             <th>Model Description</th>
                             <th>Serial Number</th>
