@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2024 at 04:06 PM
+-- Generation Time: Oct 14, 2024 at 05:28 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,7 +42,6 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`ID`, `company_code`, `assigned_to`, `location_n`, `model_description`, `serial_number`, `added_at`) VALUES
-(227, 'company_code', 'assigned_to', 'location_n', 'model_description', 'serial_number', '0000-00-00 00:00:00'),
 (228, 'RETAIL-BCI001', 'Marketing Ojt', 'MARKETING', 'SGH338RPOL', 'HP COMPAQ PV0 6300 SFF', '0000-00-00 00:00:00'),
 (229, 'RETAIL-BCI002', 'MARIBELLE FERNANDEZ', 'MARKETING', 'NXVEASP0398390092037600', 'TRAVELMATE P249-62-MG', '0000-00-00 00:00:00'),
 (230, 'RETAIL-BCI003', 'BRYAN ROLDAN', 'MARKETING', '', 'IGER E1', '0000-00-00 00:00:00'),
@@ -89,7 +88,6 @@ INSERT INTO `client` (`ID`, `company_code`, `assigned_to`, `location_n`, `model_
 (271, 'RETAIL-BCI044', 'Ma Teresa Reyna', 'ACCOUNTING', 'BAIJ82801625690763', 'ATLAS HD 276CG (MONITOR)', '0000-00-00 00:00:00'),
 (272, 'RETAIL-BCI045', 'Bianca Marie Lamson', 'ACCOUNTING', 'DTVLASP03044700F4F9626', 'Veriton X4630G (PC)', '0000-00-00 00:00:00'),
 (273, 'RETAIL-BCI046', 'Bianca Marie Lamson', 'ACCOUNTING', 'MMTX5SP002345023EA2X00', 'ACER SA22Q (MONITOR)', '0000-00-00 00:00:00'),
-(274, 'CORP. 001', 'PRINTER', 'CORPORATE', 'E73801C5N940899', 'BROTHER DCP-L25400W', '0000-00-00 00:00:00'),
 (275, 'CORP. 002', 'PRINTER', 'CORPORATE', 'E74706J7H593947', 'BROTHER DCP-T300', '0000-00-00 00:00:00'),
 (276, 'CORP. 003', 'PRINTER', 'CORPORATE', 'E81773A3H236305', 'BROTHER MFC-J3540DW', '0000-00-00 00:00:00'),
 (277, 'CORP. 004', 'PRINTER', 'CORPORATE', 'E80726D4H141271', 'BROHER DCP-T720DW', '0000-00-00 00:00:00'),
@@ -138,7 +136,8 @@ INSERT INTO `client` (`ID`, `company_code`, `assigned_to`, `location_n`, `model_
 (320, 'CORP.047', 'Jhulles', 'CORPORATE', 'NXHUQSP005113008FB2N00', 'ACER ASPIRE A514-53', '0000-00-00 00:00:00'),
 (321, 'CORP.048', 'Efjay Manalastas', 'CORPORATE', 'NXEFASP00271501D706600', 'ACER EX2519-C49F', '0000-00-00 00:00:00'),
 (322, 'CORP.049', 'ADMIN', 'CORPORATE', 'D20501966', 'HIKVISION INTERACTIVE TABLET', '0000-00-00 00:00:00'),
-(323, 'CORP.050', 'ADMIN', 'CORPORATE', 'AH0803784', 'HIKVISION INTERACTIVE FLAT PANEL', '0000-00-00 00:00:00');
+(323, 'CORP.050', 'ADMIN', 'CORPORATE', 'AH0803784', 'HIKVISION INTERACTIVE FLAT PANEL', '0000-00-00 00:00:00'),
+(331, 'CORP. 001', 'PRINTER', 'CORPORATE', 'E73801C5N940899', 'BROTHER DCP-L25400W', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -161,10 +160,9 @@ CREATE TABLE `tbl_archive` (
 --
 
 INSERT INTO `tbl_archive` (`ID`, `company_code`, `assigned_to`, `location_n`, `model_description`, `serial_number`, `added_at`) VALUES
-(166, 'CORP. 002', 'PRINTER', 'CORPORATE', 'E74706J7H593947', 'BROTHER DCP-T300', '2024-10-07 21:02:02'),
-(224, '4213123', 'Joel Pelegrino', 'Marketing', '3132N3NAN2N321', '3642MM244M2', '2024-10-13 17:46:54'),
-(225, '23131NA23324', 'Joel Pelegrino', 'Corporate', '4314ASNASED32131', '3213564N6N5454', '2024-10-14 21:21:19'),
-(226, '2541NASDASE', 'Jayrald Pelegrino', 'Corporate', '4314ASNASED32131', '3213564N6N5454232', '2024-10-14 21:56:13');
+(328, '2541NASDASE', 'Jeremy Pelegrino', 'CORPORATE', '6452SADASNASD', '3213564N6N545423264', '2024-10-14 23:19:59'),
+(329, '2541NASDASE', 'Jayrald Pelegrino', 'ACCOUNTING', '4314ASNASED32131', '3213564N6N5454232', '2024-10-14 21:56:13'),
+(330, '23131NA23', 'Jason Pelegrino', 'MARKETING', '6452SADASNASD', '3213564N6N54542322', '2024-10-14 23:20:18');
 
 -- --------------------------------------------------------
 
@@ -176,16 +174,18 @@ CREATE TABLE `user` (
   `ID` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `role` enum('admin','user') DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`ID`, `username`, `password`, `name`) VALUES
-(1, 'user', 'default', 'Jayrald Pelegrino'),
-(2, 'admin', 'default', 'Administrator');
+INSERT INTO `user` (`ID`, `username`, `password`, `name`, `role`) VALUES
+(1, 'user', 'default', 'Jayrald Pelegrino', 'user'),
+(2, 'admin', 'default', 'Administrator', 'admin'),
+(9, 'user2', 'default', 'Jeremy Pelegrino', 'user');
 
 --
 -- Indexes for dumped tables
@@ -217,19 +217,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=324;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=332;
 
 --
 -- AUTO_INCREMENT for table `tbl_archive`
 --
 ALTER TABLE `tbl_archive`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=227;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=331;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
