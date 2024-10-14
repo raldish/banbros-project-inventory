@@ -192,6 +192,7 @@
                         <th>Model Description</th>
                         <th>Serial Number</th>
                         <th>Added At</th>
+                        <th style="text-align:right">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -218,6 +219,9 @@
                                 echo "<td>" . $row['model_description'] . "</td>";
                                 echo "<td>" . $row['serial_number'] . "</td>";
                                 echo "<td>" . $row['added_at'] . "</td>";
+                                echo "<td align='right'>";
+                                echo "<a href='delete_permanent.php?delete=" . $row['ID'] . "' class='btn btn-danger'><span class='fa fa-trash'></span></a>";
+                                echo "</td>";
                                 echo "</tr>";
                             }
                             } else {
