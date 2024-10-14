@@ -1,3 +1,18 @@
+
+
+<!-- Modal window to display archived data -->
+<div id="archiveModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Archived Data</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <?php
     // session_start();
     include ("connection.php");
@@ -144,9 +159,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <!-- <li class="active"><a href="#">Dashboard <span class="sr-only">(current)</span></a></li> -->
-        <li><a href="#add" data-toggle="modal" class="btn custom-btn"><span class="fa fa-plus" style="color:white;" ></span> Add New</a></li>
-        <li><a href="archive_data.php" class="btn custom-btn"><span class="fa fa-archive" style="color:white;"></span> Archive</a></li>
-        <li><a href="export_excelfile.php?export" data-toggle="modal" class="btn custom-btn"><span class="fa fa-file-excel" style="color:white;"></span> Export</a></li>
+        <li><a href="index.php" class="btn custom-btn"><span class="fa fa-home" style="color:white;" ></span> Dashboard</a></li>
+        <li><a href="export_archivefile.php?export" data-toggle="modal" class="btn custom-btn"><span class="fa fa-file-excel" style="color:white;"></span> Export</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -165,59 +179,60 @@
 </nav>
 
 <div class="panel panel">
-    <div class="panel-heading" style="color:white;background:#99C7DD;padding:1px"><h3>Banbros Property List</h3></div>
+    <div class="panel-heading" style="color:white;background:#fe8181;padding:1px"><h3>Archived Data</h3></div>
         <div class="panel-body">
-            <div class="container">
-                <?php
-                    if(isset($_SESSION['success'])){
-                        echo "<div style='background:green; color:#fff; padding:3px; border-radius:25px; font-size:15px; text-align:center;'>".$_SESSION['success']."</div>";
-                        unset($_SESSION['success']);
-                    }
-                    if(isset($_SESSION['error'])){
-                        echo "<div style='background:red; color:#fff; padding:3px; border-radius:25px; font-size:15px; text-align:center;'>".$_SESSION['error']."</div>";
-                        unset($_SESSION['error']);
-                    }
-                ?>
-            </div> 
+            <div class="modal-body">
                 <table class="table table-bordered" id="example" width="100%">
                     <thead>
                         <tr>
-                            <th>Company Code</th>
-                            <th>Assigned To / Device</th>
-                            <th>Location</th>
-                            <th>Model Description</th>
-                            <th>Serial Number</th>
-                            <th>Added at</th>
-                            <th style="text-align:right">Action</th>
+                        <!-- <th>ID</th> -->
+                        <th>Company Code</th>
+                        <th>Assigned To</th>
+                        <th>Location</th>
+                        <th>Model Description</th>
+                        <th>Serial Number</th>
+                        <th>Added At</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                            $sql = "SELECT * FROM client ORDER BY company_code ASC";
-                            $query= $conn->query($sql); 
-                            $count =1;
-                            while($row = $query->fetch_assoc()){
-                        ?>
-                            <tr>
-                                <td><?=$row['company_code']?></td>
-                                <td><?=$row['assigned_to']?></td>
-                                <td><?=$row['location_n']?></td>
-                                <td><?=$row['model_description']?></td>
-                                <td><?=$row['serial_number']?></td>
-                                <td><?=$row['added_at']?></td>
-                                <td align="right">
-                                    <a href="edit.php?edit=<?=$row['ID']; ?>" class="btn btn-success"><span class="fa fa-edit"></span></a>
-                                    <a href="delete.php?delete=<?=$row['ID']; ?>" class="btn btn-danger"><span class="fa fa-trash"></span></a>
-                                    <a href="archive.php?archive=<?=$row['ID']; ?>" class="btn btn-danger"><span class="fa fa-archive"></span></a>
-                                </td>
-                            </tr>
+                        // Include your database connection file
 
-                        <?php } ?>
+                        // Query to retrieve archived data from the database
+                        $query = "SELECT * FROM tbl_archive";
+
+                        // Execute the query
+                        $result = mysqli_query($conn, $query);
+
+                        // Check if the query was successful
+                        if ($result) {
+                            // Check if there are any rows in the result
+                            if (mysqli_num_rows($result) > 0) {
+                            // Loop through each row and display the data
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<tr>";
+                                // echo "<td>" . $row['ID'] . "</td>";
+                                echo "<td>" . $row['company_code'] . "</td>";
+                                echo "<td>" . $row['assigned_to'] . "</td>";
+                                echo "<td>" . $row['location_n'] . "</td>";
+                                echo "<td>" . $row['model_description'] . "</td>";
+                                echo "<td>" . $row['serial_number'] . "</td>";
+                                echo "<td>" . $row['added_at'] . "</td>";
+                                echo "</tr>";
+                            }
+                            } else {
+                            echo "<tr><td colspan='7'>No archived data found.</td></tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='7'>Error retrieving archived data: " . mysqli_error($conn) . "</td></tr>";
+                        }
+                        ?>
                     </tbody>
                 </table>
+            </div>
         </div>
     </div>
-</div>
+
 <br><br>
 <div class="footer">
     <div class="panel-heading" style="color:white;background:#338FBB;"><h5>Made by: <a href="https://github.com/raldish" style="color:#e399a5;"><i class="fa fa-github" style="font-size:35px;color:white"></i>Jayrald Pelegrino</a></h5></div></div>
@@ -230,9 +245,6 @@
                 fixedHeader: true,
                 responsive: true
             });
-            </script>
-        <?php
-        include "modal_addnew.php";
-        ?>
+        </script>
 </body>
 </html>
