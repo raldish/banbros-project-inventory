@@ -18,6 +18,11 @@
     .container{
         padding: 20px;
     }
+
+    .right-align {
+    text-align: center;
+    width: 100%;
+    }
 </style>
 
 <body style="background:#eee">
@@ -78,7 +83,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="signupModalLabel">Sign up</h5>
+                    <h5 class="modal-title right-align" id="signupModalLabel">Create employee account</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -87,21 +92,22 @@
                     <form action="signup.php" method="POST">
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" required>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
                         </div>
                         <div class="form-group">
                             <label for="confirm_password">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                            <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Enter Confirm Password" required>
                         </div>
                         <div class="form-group">
                             <label for="name">Name of the user</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="First Name / Last Name" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Sign up</button>
+                        <p align ="right">
+                        <button type="submit" class="btn btn-primary" style="align-items:Center">Create Account</button></p>
                     </form>
                 </div>
             </div>
