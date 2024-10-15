@@ -114,9 +114,9 @@
     }
 
     .footer {
-        position: absolute;
+        position: sticky;
         left: 0;
-        bottom: -279px;
+        bottom: -60px;
         width: 100%;
         background-color: red;
         color: white;
