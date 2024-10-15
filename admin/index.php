@@ -229,6 +229,7 @@
                                     <a href="edit.php?edit=<?=$row['ID']; ?>" class="btn btn-success"><span class="fa fa-edit"></span></a>
                                     <a href="delete.php?delete=<?=$row['ID']; ?>" class="btn btn-danger"><span class="fa fa-trash"></span></a>
                                     <a href="archive.php?archive=<?=$row['ID']; ?>" class="btn btn-danger"><span class="fa fa-archive"></span></a>
+                                    <a href="#" class="btn btn-danger"><span class="fa fa-print"></span></a>
                                 </td>
                                 <?php } ?>
                             </tr>
