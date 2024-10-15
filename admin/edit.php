@@ -88,6 +88,15 @@
         h3{
             text-align: center;
         }
+        .footer {
+        position: sticky;
+        left: 0;
+        bottom: -60px;
+        width: 100%;
+        background-color: red;
+        color: white;
+        text-align: center;
+    }
     </style>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

@@ -158,9 +158,9 @@
           <a href="#" class="btn custom-btn" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ><span class="glyphicon glyphicon-user" style="color:#073595;"></span> <?=$user['name'];?> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="logout.php" onclick="return confirm('Are you sure you want to logout?')"><span class="fa fa-sign-out" style="color:#073595;"></span> Log Out</a></li>
-            <li><a href="#"><span class="fa fa-user" style="color:#073595;"></span> Profile</a></li>
+            <!-- <li><a href="#"><span class="fa fa-user" style="color:#073595;"></span> Profile</a></li> -->
             <li role="separator" class="divider"></li>
-            <li><a href="#"><span class="fa fa-key" style="color:#073595;"></span> Change Password</a></li>
+            <li><a href="change_password.php"><span class="fa fa-key" style="color:#073595;"></span> Change Password</a></li>
           </ul>
         </li>
       </ul>
